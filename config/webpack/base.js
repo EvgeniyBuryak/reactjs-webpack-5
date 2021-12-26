@@ -1,6 +1,6 @@
 const paths = require('../paths');
 
-const webpack = require('webpack');
+// const webpack = require('webpack');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -13,16 +13,18 @@ module.exports = {
     app: ['babel-polyfill', `${paths.src}/index.js`]
   },
   //Where files should be sent once they are bundled
-  output: {
-    filename: `${paths.assets}js/[name].[hash].js`,
+  output: {    
+    filename: 'js/[name].bundle.js',
     path: paths.dist,
     publicPath: '/',
     clean: true,
+    // module: true,
   },
-  //webpack 5 comes with devServer which loads in development mode
-  // devServer: {
-  //   port: 3000,
-  //   hot: true
+  // resolve: {
+  //   alias: {
+  //     '@': `${paths.src}/modules`
+  //   },
+  //   extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
   // },
   //Rules of how webpack will take our files, complie & bundle them for the browser 
   module: {
@@ -43,16 +45,21 @@ module.exports = {
     ]
   },
   plugins: [
+    
     // new CopyWebpackPlugin({
     //   patterns: [
     //     {
-    //       from: `${paths.assets}`
+    //       from: `${paths.public}/assets`
     //     }
     //   ]
     // }),
+
     new HtmlWebpackPlugin({ 
-      template: './src/index.html' 
+      template: `${paths.src}/index.html`,
+      filename: 'index.html',
+      templateParameters: {        
+        author: 'Buryak Evgeniy',
+      }
     }), 
-    // new MiniCssExtractPlugin()
   ],
 }

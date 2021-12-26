@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve -c config/webpack/dev.js",
-    "build": "webpack -c production"
+    "build": "webpack -c config/webpack/prod.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,9 @@
   "dependencies": {
     "axios": "^0.24.0",
     "flatlist-react": "^1.5.0",
+    "immer": "^9.0.7",
+    "nanoid": "^3.1.30",
+    "prop-types": "^15.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "styled-components": "^5.3.3"

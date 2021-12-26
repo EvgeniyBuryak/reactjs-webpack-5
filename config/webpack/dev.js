@@ -19,9 +19,7 @@ module.exports = merge(base, {
       // clientLogLevel: 'silent'
     },
     plugins: [
-        // new webpack.HotModuleReplacementPlugin(),
-        // new webpack.SourceMapDevToolPlugin({
-        //     filename: '[file].map'
-        // })
+      // apply changes only on hot reload
+      // new webpack.HotModuleReplacementPlugin()
     ]
   })

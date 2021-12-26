@@ -7,4 +7,4 @@ import "./screens/home-screen/home-screen.view.css";
 ReactDom.render(<HomeScreen />, document.getElementById('app'));
 
 // SCSS
-import './assets/scss/main.scss';
+import '../public/assets/scss/main.scss';

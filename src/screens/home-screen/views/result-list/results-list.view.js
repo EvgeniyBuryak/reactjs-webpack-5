@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
-import "./results-list.view.css";
 import FlatList from 'flatlist-react';
 import ResultDetail from "../result-detail/result-detail.view";
+import "./results-list.view.css";
 // import styled, { createGlobalStyle } from "styled-components";
 // // styled - стилизация компонента
 // // createGlobalStyle - глобальные стили

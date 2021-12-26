@@ -1,9 +1,9 @@
 const paths = require('../paths');
+
 const { merge } = require('webpack-merge');
 const base = require('./base');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 module.exports = merge(base, {
@@ -23,8 +23,8 @@ module.exports = merge(base, {
   },
   module: {
     rules: [
-      {
-        test: /\.(c|sa|sc)ss$/i,
+      {        
+        test: /\.(scss|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -38,7 +38,6 @@ module.exports = merge(base, {
     ]
   },
   plugins: [
-    // new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css',
       chunkFilename: '[id].css'
@@ -48,12 +47,12 @@ module.exports = merge(base, {
     //   test: /\.(jpe?g|png|gif|svg)$/i
     // })
   ],
-  // optimization: {
-  //   runtimeChunk: 'single'
-  // },
-  // performance: {
-  //   hints: 'warning',
-  //   maxEntrypointSize: 512000,
-  //   maxAssetSize: 512000
-  // }
+  optimization: {
+    runtimeChunk: 'single'
+  },
+  performance: {
+    hints: 'warning',
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  }
 })
