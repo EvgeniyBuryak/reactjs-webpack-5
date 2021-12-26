@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 /** Main const */
 const PATHS = {
@@ -28,6 +29,7 @@ module.exports = {
   //Rules of how webpack will take our files, complie & bundle them for the browser 
   module: {
     rules: [
+      // JavaScript, React
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -35,11 +37,53 @@ module.exports = {
           loader: 'babel-loader'
         },
       },
+      // CSS, PostCSS, Sass
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
-      }
+        test: /\.(scss|css)$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+      },
+      // {            
+      //   test: /\.(scss|css)$/,
+      //   use: [
+      //       'style-loader',
+      //       // MiniCssExtractPlugin.loader,
+      //       {
+      //           loader: 'css-loader',
+      //           options: { sourceMap: true }
+      //       }, {
+      //           loader: 'postcss-loader',
+      //           options: {
+      //               sourceMap: true,
+      //               postcssOptions: {
+      //                   plugins: [
+      //                       [ 'autoprefixer', { /* Options */ }, ],
+      //                   ],
+      //               },
+      //           },
+      //       }, {
+      //           loader: 'sass-loader',
+      //           options: { sourceMap: true }
+      //       }
+      //   ]
+      // },
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //       MiniCssExtractPlugin.loader,
+      //       {
+      //         loader: 'css-loader',
+      //         options: { sourceMap: true }
+      //       }
+            
+      //   ]
+      // }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' }), new MiniCssExtractPlugin()],
+  plugins: [
+    // new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({ 
+      template: './src/index.html' 
+    }), 
+    // new MiniCssExtractPlugin()
+  ],
 }
