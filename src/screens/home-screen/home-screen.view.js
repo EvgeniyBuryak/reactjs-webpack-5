@@ -23,8 +23,8 @@ const App = () => {
 
     return ( 
         <>
-        <div>
-            <h1>Welcome to React App</h1>
+        <div className="content-wrapper">
+            <h1>Сontacts book</h1>
             <h3>Date : {new Date().toDateString()}</h3>            
             <Form />
             <ResultsList results={results} />

@@ -1,0 +1,25 @@
+.result-list {
+    padding: 0 1rem;
+    max-width: inherit;
+
+    &__border-line {
+        padding: 3vw 0;
+        border-top: 1px solid rgb(216, 211, 146);
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__item {
+        padding-left: 1rem;
+        line-height: 1.5;
+        width: 200vw;
+        max-width: 200vw;
+    }
+
+    &__item:nth-child(4) {
+        padding-right: 1rem;
+    }
+}

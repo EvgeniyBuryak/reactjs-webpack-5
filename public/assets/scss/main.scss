@@ -116,7 +116,6 @@ section, .section {
     margin: 0 auto;
 
     @media screen and (max-width: $macAirDesktop) {
-        //width: 1130px;
         width: 1060px;
     }
 
@@ -137,7 +136,7 @@ section, .section {
 }
 
 .content-wrapper {
-
+    padding-top: 10vh;
 }
 
 .container {
