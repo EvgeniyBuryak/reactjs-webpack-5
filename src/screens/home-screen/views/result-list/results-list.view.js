@@ -1,25 +1,30 @@
 import React, { useCallback } from "react";
+import { Link } from "react-router-dom";
 import FlatList from 'flatlist-react';
 import ResultDetail from "../result-detail/result-detail.view";
 import "./results-list.view.scss";
-// import styled, { createGlobalStyle } from "styled-components";
-// // styled - стилизация компонента
-// // createGlobalStyle - глобальные стили
-// const StyledList = styled.ul`    
-//     display: flex;
-//     flex-direction: row;
-// `;
 
 const ResultList = ({ results }) => {
     
-    // const keyExtractor = useCallback( item => item.id.toString(), []);
-    const renderPerson = useCallback( (person) => {
-        return (            
-            // <TouchableOpacity onPress={() => navigation.navigate('ResultsShow', { id: item.id })}>
-            // properties key -  avoid error in flatlist-react library
-            <ResultDetail result={person} key={person.id}/>
-            // </TouchableOpacity>
+    const renderPerson = useCallback( (person, idx) => {
+        return (
+            // <>
+            <Link to='/about' 
+                  state={{ from: person }}
+                  key={idx}>
+            {/* // <a key={idx}> */}
+                {/* // <input onPress={() => navigation.navigate('ResultsShow', { id: person.id })}> */}
+                {/* // properties key -  avoid error in flatlist-react library */}
+                <ResultDetail result={person}/>
+                {/* <Link to="/about" >About</Link> */}
+                {/* </input>   */}
+                {/* </> */}
+            </Link>
         )}, []);
+
+    const mouseOverHandler = (e) => {
+        e.addEventListener("click", () => { alert("123") }, false);
+    };  
 
     return (
         <div className="result-list">
@@ -36,7 +41,9 @@ const ResultList = ({ results }) => {
             <FlatList
                 list={results}
                 renderItem={renderPerson}
-                // keyExtractor={keyExtractor}
+                renderWhenEmpty={() => <div>List Empty!</div>}
+                limit={5}
+                onMouseOver={mouseOverHandler}
             />            
         </div>
     );

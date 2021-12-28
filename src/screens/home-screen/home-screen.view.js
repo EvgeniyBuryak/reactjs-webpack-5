@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { getUsers } from "../../api/sibers.com.api";
-import Form from "./views/form/form.view";
+// import Form from "./views/form/form.view";
 import ResultsList from "./views/result-list/results-list.view";
 import "./home-screen.view.scss";
 
@@ -28,11 +27,8 @@ const HomeScreen = () => {
         <div className="content-wrapper">
             <h1>Сontacts book</h1>
             {/* <h3>Date : {new Date().toDateString()}</h3>             */}
-            {/* <Form /> */}
-            <nav>
-                <Link to="/about">About</Link>
-            </nav>
-            {/* <ResultsList results={results} /> */}
+            {/* <Form /> */}            
+            <ResultsList results={results} />
         </div>
         </>
     )

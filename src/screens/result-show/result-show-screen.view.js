@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const ResultShowScreen = () => {
+    const location = useLocation();
+    const { from } = location.state;
+    console.log(from);
     return (
         <>
             <main>
