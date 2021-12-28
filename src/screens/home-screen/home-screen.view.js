@@ -3,7 +3,7 @@ import { getUsers } from "../../api/sibers.com.api";
 import Form from "./views/form/form.view";
 import ResultsList from "./views/result-list/results-list.view";
 
-const App = () => {
+const HomeScreen = () => {
     const [results, setResults] = useState([]);
 
     const getResults = async () => {
@@ -33,4 +33,4 @@ const App = () => {
     )
 }
 
-export default App
+export { HomeScreen };
