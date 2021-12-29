@@ -10,7 +10,10 @@ const ResultList = ({ results }) => {
         return (
             // <>
             <Link to='/about' 
+                  className="b123"
+                  // pass props throught state
                   state={{ from: person }}
+                  // idx - unique key flatlist-react library
                   key={idx}>
             {/* // <a key={idx}> */}
                 {/* // <input onPress={() => navigation.navigate('ResultsShow', { id: person.id })}> */}
@@ -28,8 +31,8 @@ const ResultList = ({ results }) => {
 
     return (
         <div className="result-list">
-            <h1> List Contacs </h1>
-            <h2> {results.length} </h2>
+            {/* <h2> List Contacs </h2> */}
+            <h6> {results.length} </h6>
             <div className="result-list__border-line">
                 <ul className="result-list__list">
                     <li className="result-list__item">Name</li>

@@ -25,7 +25,7 @@ const HomeScreen = () => {
     return ( 
         <>
         <div className="content-wrapper">
-            <h1>Сontacts book</h1>
+            {/* <h1>Сontacts book</h1> */}
             {/* <h3>Date : {new Date().toDateString()}</h3>             */}
             {/* <Form /> */}            
             <ResultsList results={results} />
