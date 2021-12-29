@@ -84,10 +84,24 @@ h1, h2, h3, h4, h5, h6 {
 
 a { text-decoration: none; }
 
+a:-webkit-any-link {
+    color:rgb(216, 211, 146);
+}
 ul, li {
     margin: 0;  
     padding: 0;
     list-style-type: none;
+}
+
+button, input {
+    font-family: $mainFont;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
 section, .section {
@@ -169,6 +183,3 @@ section, .section {
         max-width: 345px;
     }
 }
-
-// Modules
-// @import "modules/button.scss";
