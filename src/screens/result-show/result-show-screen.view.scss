@@ -1,0 +1,31 @@
+.result-show-screen {
+    // display: flex;
+    // flex-direction: row;
+        margin: auto;
+        width: 680px;
+        display: grid;
+        grid-template-columns: 1fr 2fr; // repeat(3, 1fr);
+    &__list {
+        // width: inherit;
+        // display: flex;
+        // flex-direction: row;
+        // grid-column: 1;
+    }
+
+    &__list:nth-child(1) {
+        background-color: rgb(102, 102, 139);
+    }
+
+    &__list_second {
+        // grid-column: 2;
+        // display: inline;
+    }
+
+    &_width {
+        // width: inherit;
+    }    
+}
+
+.result-show-screen:nth-child(even) {
+    
+}
