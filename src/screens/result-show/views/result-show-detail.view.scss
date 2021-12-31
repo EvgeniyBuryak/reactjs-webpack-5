@@ -1,0 +1,31 @@
+@import '../../../../public/assets/scss/utils/vars.scss';
+.result-show-detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // justify-content: space-evenly;    
+
+    &_item {
+        line-height: 3rem;
+        text-align: left;
+    }
+    
+    &_btn {
+        width: 334px;
+        padding-left: 15px;
+        font-size: 14px;
+        line-height: 2.2rem;
+        letter-spacing: 0.02em;
+        
+        border-radius: 2px;
+        color: $white;
+        background: transparent;
+        outline: 1px solid $white30;
+    }
+}
+
+.alert {
+    margin-left: 1rem;
+    color: red;
+    font-size: 13px;
+}
