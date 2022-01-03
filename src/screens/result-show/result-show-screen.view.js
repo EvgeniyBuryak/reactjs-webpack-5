@@ -2,28 +2,21 @@ import React, { useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./result-show-screen.view.scss";
 import { myValidate } from "./form-validation";
+import ResultShowDetail from "./views/result-show-detail.view";
 
 const ResultShowScreen = () => {
     const location = useLocation();
     const { from } = location.state;
-    
-    console.log(from.avatar);
 
     const onValidater = useCallback((e)=> {
         e.preventDefault();
-        // alert("it works!");
-        const my = myValidate();
-        // alert(my);
-        return my;
-    },[]);
 
-    // const handleSubmit = {
-    //     return myValidate()
-    // };
+        return myValidate();        
+    },[]);
 
     return (
         <div className="result-show-screen">
-            <div className="result-show-screen_width">
+            {/* <div className="result-show-screen_width"> */}
             <ul className="result-show-screen__list">
                 {/* <li className="result-show-screen_item">Аватар</li> */}
                 {/* <li className="result-show-screen_item">Vip</li> */}
@@ -37,38 +30,23 @@ const ResultShowScreen = () => {
                 <li className="result-show-screen_item">City</li>
                 <li className="result-show-screen_item">Address</li>
             </ul>
-            </div>
+            {/* </div> */}
             <form key={from.id} 
                   className="result-show-screen__list result-show-screen__list_second"
                   name="form" 
                   method="get" 
                   onSubmit={onValidater}
                   noValidate
-                >
-                {/* <li className="result-show-screen_item"><img className="avatar" source={{ uri: from.avatar }} alt="avatar" /></li> */}
-                <input className="result-show-screen_item result-show-screen_btn" 
-                       type="text" 
-                       placeholder="name" 
-                       defaultValue={from.name}/>
-                <input className="result-show-screen_item result-show-screen_btn" type="text" placeholder="username" 
-                       defaultValue={from.username}/>
-                <input className="result-show-screen_item result-show-screen_btn" type="email" placeholder="email"
-                       defaultValue={from.email}/>
-                <input className="result-show-screen_item result-show-screen_btn" type="text" placeholder="company"
-                       defaultValue={from.company["name"]}/>
-                {/* <input className="result-show-screen_item result-show-screen_btn" type="text" placeholder="phone" */}
-                       {/* defaultValue={from.phone}/> */}
-                <input className="result-show-screen_item result-show-screen_btn" type="text" placeholder="country"
-                       defaultValue={from.address["country"]}/>
-                <input className="result-show-screen_item result-show-screen_btn" type="text" placeholder="state"
-                       defaultValue={from.address["state"]}/>
-                <input className="result-show-screen_item result-show-screen_btn" type="text" placeholder="city"
-                       defaultValue={from.address["city"]}/>
-                <input className="result-show-screen_item result-show-screen_btn" 
-                       type="text" 
-                       placeholder="address" 
-                       defaultValue={from.address["streetA"]}/>
-                <input className="result-show-screen_btn" type="submit" value="Save" />                
+                >                                                
+                <ResultShowDetail name={"name"}     type={"text"}  value={from.name}               error={"letters"} />
+                <ResultShowDetail name={"username"} type={"text"}  value={from.username}           error={"letters-numbers"} />
+                <ResultShowDetail name={"email"}    type={"email"} value={from.email}              error={"email"} />
+                <ResultShowDetail name={"company"}  type={"text"}  value={from.company["name"]}    error={"letters"} />
+                <ResultShowDetail name={"country"}  type={"text"}  value={from.address["country"]} error={"letters"} />
+                <ResultShowDetail name={"state"}    type={"text"}  value={from.address["state"]}   error={"letters"} />
+                <ResultShowDetail name={"city"}     type={"text"}  value={from.address["city"]}    error={"letters"} />
+                <ResultShowDetail name={"address"}  type={"text"}  value={from.address["streetA"]} error={"letters"} />
+                <input className="result-show-screen_btn" type="submit" value="Save" />
             </form>
             {/* <nav>
                 <Link to="/">Home</Link>
