@@ -43,8 +43,8 @@ body {
     // background: $ink url('../img/image_6.png');// 0 0 no-repeat;
     background: $ink;
     width: 1920px;
-    //width: 1280px;
-    height: 2322px;
+    // width: 1280px;
+    // height: 2322px;
 
     @media screen and (max-width: $macAirDesktop) {
         width: $macAirDesktop;
@@ -150,7 +150,7 @@ section, .section {
 }
 
 .content-wrapper {
-    padding-top: 10vh;
+    // padding-top: 4vh;
 }
 
 .container {
