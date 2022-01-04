@@ -1,3 +1,5 @@
+@import '../../../../../public/assets/scss/utils/vars.scss';
+
 .result-list {
     padding: 0 1rem;
     max-width: inherit;
@@ -21,5 +23,33 @@
 
     &__item:nth-child(4) {
         padding-right: 1rem;
+    }
+
+    &__btn {
+        width: 134px;
+        height: 36px;
+        // padding-left: 15px;
+        font-size: 17px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+
+        border-radius: 4px;
+        color: $white;
+        background: transparent;
+        outline: 1px solid $white30;
+
+        margin-bottom: 2em;
+
+        &__gradient {
+            // width: 337px;
+            // height: 48px;
+            // border-radius: 5px;
+            color: $ink;
+            background: linear-gradient(91.33deg, #89A3FF 0%, #FF6060 54.17%, #FFBF00 100%);
+            outline: none;
+    
+            box-shadow: 0px 13.2985px 26.5969px rgba(255, 0, 63, 0.2);
+            //mix-blend-mode: normal;
+        }
     }
 }

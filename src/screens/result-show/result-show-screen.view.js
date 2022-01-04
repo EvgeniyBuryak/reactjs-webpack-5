@@ -29,6 +29,7 @@ const ResultShowScreen = () => {
                 <li className="result-show-screen_item">State</li>
                 <li className="result-show-screen_item">City</li>
                 <li className="result-show-screen_item">Address</li>
+                {/* <li></li> */}
             </ul>
             {/* </div> */}
             <form key={from.id} 
@@ -46,7 +47,7 @@ const ResultShowScreen = () => {
                 <ResultShowDetail name={"state"}    type={"text"}  value={from.address["state"]}   error={"letters"} />
                 <ResultShowDetail name={"city"}     type={"text"}  value={from.address["city"]}    error={"letters"} />
                 <ResultShowDetail name={"address"}  type={"text"}  value={from.address["streetA"]} error={"letters"} />
-                <input className="result-show-screen_btn" type="submit" value="Save" />
+                <input className="result-show-screen_btn result-show-screen_btn__gradient" type="submit" value="Save" />
             </form>
             {/* <nav>
                 <Link to="/">Home</Link>
