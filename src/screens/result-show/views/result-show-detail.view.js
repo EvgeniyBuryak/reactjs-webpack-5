@@ -1,7 +1,7 @@
 import React from "react";
 import "./result-show-detail.view.scss";
 
-const ResultShowDetail = ({ name, type, value, error }) => {
+const ResultShowDetail = ({ name, type, value, error, onChange }) => {
     
     return (
         <div className="result-show-detail">
@@ -12,6 +12,7 @@ const ResultShowDetail = ({ name, type, value, error }) => {
             type={type}
             placeholder={name} 
             defaultValue={value}
+            onChange={onChange}
         />
         </div>
     );   

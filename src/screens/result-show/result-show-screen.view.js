@@ -3,20 +3,26 @@ import { Link, useLocation } from "react-router-dom";
 import "./result-show-screen.view.scss";
 import { myValidate } from "./form-validation";
 import ResultShowDetail from "./views/result-show-detail.view";
+import { useStateWithLocalStorage } from "./useStateWithLocalStorage";
 
 const ResultShowScreen = () => {
     // const [name, setName] = useState(localStorage.getItem("name"));
-    const [user, setUser] = useState();
     const location = useLocation();
     const { from } = location.state;
+    // const [user, setUser] = useState(
+    //     localStorage.getItem(from.username) || ''
+    // );
+    const [user, setUser] = useStateWithLocalStorage(from.username);
 
     const handleFormSubmit = useCallback((e)=> {
         e.preventDefault();
 
-        localStorage['mykey'] = JSON.stringify(from);
-        setUser(JSON.parse(localStorage['mykey']));
+        // localStorage[from.username] = JSON.stringify(from);
+        // setUser(JSON.parse(localStorage[from.username]));
         return myValidate();        
     },[]);
+
+    const onChange = event => setUser(event.target.value);
 
     return (
         <div className="result-show-screen">
@@ -43,15 +49,15 @@ const ResultShowScreen = () => {
                   onSubmit={handleFormSubmit}
                   noValidate
                 >
+                <ResultShowDetail name={"name"} type={"text"} value={(user || '')} onChange={onChange} error={"letters"} />
                 {/* <ResultShowDetail name={"name"}     type={"text"}  value={user['name']}                    error={"letters"} />                                                 */}
-                <ResultShowDetail name={"name"}     type={"text"}  value={from.name}               error={"letters"} />
-                <ResultShowDetail name={"username"} type={"text"}  value={from.username}           error={"letters-numbers"} />
-                <ResultShowDetail name={"email"}    type={"email"} value={from.email}              error={"email"} />
-                <ResultShowDetail name={"company"}  type={"text"}  value={from.company["name"]}    error={"letters"} />
-                <ResultShowDetail name={"country"}  type={"text"}  value={from.address["country"]} error={"letters"} />
-                <ResultShowDetail name={"state"}    type={"text"}  value={from.address["state"]}   error={"letters"} />
-                <ResultShowDetail name={"city"}     type={"text"}  value={from.address["city"]}    error={"letters"} />
-                <ResultShowDetail name={"address"}  type={"text"}  value={from.address["streetA"]} error={"letters"} />
+                {/* <ResultShowDetail name={"username"} type={"text"}  value={user.username}           error={"letters-numbers"} />
+                <ResultShowDetail name={"email"}    type={"email"} value={user.email}              error={"email"} />
+                <ResultShowDetail name={"company"}  type={"text"}  value={user.company["name"]}    error={"letters"} />
+                <ResultShowDetail name={"country"}  type={"text"}  value={user.address["country"]} error={"letters"} />
+                <ResultShowDetail name={"state"}    type={"text"}  value={user.address["state"]}   error={"letters"} />
+                <ResultShowDetail name={"city"}     type={"text"}  value={user.address["city"]}    error={"letters"} />
+                <ResultShowDetail name={"address"}  type={"text"}  value={user.address["streetA"]} error={"letters"} /> */}
                 <input className="result-show-screen_btn result-show-screen_btn__gradient" type="submit" value="Save" />
             </form>
             {/* <nav>
