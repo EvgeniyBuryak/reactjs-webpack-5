@@ -2,18 +2,18 @@ import React, { useEffect } from 'react';
 import "./result-detail.view.scss";
 
 const ResultDetail = ( {result} ) => {
-    const setResults = () => {
-        let name = 'name';
-        let phone = 'phone';
+    // const setResults = () => {
+    //     let name = 'name';
+    //     let phone = 'phone';
 
-        localStorage.setItem(name, result[name]);
-        localStorage.setItem(phone, result[phone]);
-        localStorage.setItem("company", result.company["name"]);
-        localStorage.setItem("country", result.address["country"]);
-    }
+    //     localStorage.setItem(name, result[name]);
+    //     localStorage.setItem(phone, result[phone]);
+    //     localStorage.setItem("company", result.company["name"]);
+    //     localStorage.setItem("country", result.address["country"]);
+    // }
     
     useEffect(() => {
-        setResults();
+        // setResults();
     }, []);
     
     return (

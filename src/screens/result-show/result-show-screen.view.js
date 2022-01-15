@@ -12,7 +12,7 @@ const ResultShowScreen = () => {
     // const [user, setUser] = useState(
     //     localStorage.getItem(from.username) || ''
     // );
-    const [user, setUser] = useStateWithLocalStorage(from.username);
+    const [user, setUser] = useStateWithLocalStorage(from);
 
     const handleFormSubmit = useCallback((e)=> {
         e.preventDefault();
