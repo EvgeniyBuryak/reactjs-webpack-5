@@ -1,16 +1,20 @@
-import React, { useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./result-show-screen.view.scss";
 import { myValidate } from "./form-validation";
 import ResultShowDetail from "./views/result-show-detail.view";
 
 const ResultShowScreen = () => {
+    // const [name, setName] = useState(localStorage.getItem("name"));
+    const [user, setUser] = useState();
     const location = useLocation();
     const { from } = location.state;
 
-    const onValidater = useCallback((e)=> {
+    const handleFormSubmit = useCallback((e)=> {
         e.preventDefault();
 
+        localStorage['mykey'] = JSON.stringify(from);
+        setUser(JSON.parse(localStorage['mykey']));
         return myValidate();        
     },[]);
 
@@ -36,9 +40,10 @@ const ResultShowScreen = () => {
                   className="result-show-screen__list result-show-screen__list_second"
                   name="form" 
                   method="get" 
-                  onSubmit={onValidater}
+                  onSubmit={handleFormSubmit}
                   noValidate
-                >                                                
+                >
+                {/* <ResultShowDetail name={"name"}     type={"text"}  value={user['name']}                    error={"letters"} />                                                 */}
                 <ResultShowDetail name={"name"}     type={"text"}  value={from.name}               error={"letters"} />
                 <ResultShowDetail name={"username"} type={"text"}  value={from.username}           error={"letters-numbers"} />
                 <ResultShowDetail name={"email"}    type={"email"} value={from.email}              error={"email"} />

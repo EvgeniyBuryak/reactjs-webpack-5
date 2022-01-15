@@ -9,7 +9,7 @@ const HomeScreen = () => {
     const getResults = async () => {
 
         try {
-            const result = await getUsers();
+            const result = await getUsers();            
 
             setResults(result);
         } catch (err) {
