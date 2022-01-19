@@ -1,18 +1,18 @@
 import React, { useState, useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
+// import { Link, useLocation } from "react-router-dom";
 import "./result-show-screen.view.scss";
 import { myValidate } from "./form-validation";
 import ResultShowDetail from "./views/result-show-detail.view";
-import { useStateWithLocalStorage } from "./useStateWithLocalStorage";
+// import { useStateWithLocalStorage } from "./useStateWithLocalStorage";
 
 const ResultShowScreen = () => {
     // const [name, setName] = useState(localStorage.getItem("name"));
-    const location = useLocation();
-    const { from } = location.state;
+    // const location = useLocation();
+    // const { from } = location.state;
     // const [user, setUser] = useState(
     //     localStorage.getItem(from.username) || ''
     // );
-    const [user, setUser] = useStateWithLocalStorage(from);
+    // const [user, setUser] = useStateWithLocalStorage(from);
 
     const handleFormSubmit = useCallback((e)=> {
         e.preventDefault();
@@ -22,7 +22,7 @@ const ResultShowScreen = () => {
         return myValidate();        
     },[]);
 
-    const onChange = event => setUser(event.target.value);
+    // const onChange = event => setUser(event.target.value);
 
     return (
         <div className="result-show-screen">
@@ -42,19 +42,19 @@ const ResultShowScreen = () => {
                 {/* <li></li> */}
             </ul>
             {/* </div> */}
-            <form key={from.id} 
+            <form // key={from.id} 
                   className="result-show-screen__list result-show-screen__list_second"
                   name="form" 
                   method="get" 
                   onSubmit={handleFormSubmit}
                   noValidate
                 >
-                <ResultShowDetail name={"name"} type={"text"} value={(user || '')} onChange={onChange} error={"letters"} />
-                {/* <ResultShowDetail name={"name"}     type={"text"}  value={user['name']}                    error={"letters"} />                                                 */}
-                {/* <ResultShowDetail name={"username"} type={"text"}  value={user.username}           error={"letters-numbers"} />
-                <ResultShowDetail name={"email"}    type={"email"} value={user.email}              error={"email"} />
-                <ResultShowDetail name={"company"}  type={"text"}  value={user.company["name"]}    error={"letters"} />
-                <ResultShowDetail name={"country"}  type={"text"}  value={user.address["country"]} error={"letters"} />
+                {/* <ResultShowDetail name={"name"} type={"text"} value={(user || '')} onChange={onChange} error={"letters"} /> */}
+                <ResultShowDetail name={"name"}     type={"text"}  value={'name'}               error={"letters"} />
+                <ResultShowDetail name={"username"} type={"text"}  value={'username'}           error={"letters-numbers"} />
+                <ResultShowDetail name={"email"}    type={"email"} value={'email'}              error={"email"} />
+                <ResultShowDetail name={"company"}  type={"text"}  value={'company'}            error={"letters"} />
+                {/* <ResultShowDetail name={"country"}  type={"text"}  value={user.address["country"]} error={"letters"} />
                 <ResultShowDetail name={"state"}    type={"text"}  value={user.address["state"]}   error={"letters"} />
                 <ResultShowDetail name={"city"}     type={"text"}  value={user.address["city"]}    error={"letters"} />
                 <ResultShowDetail name={"address"}  type={"text"}  value={user.address["streetA"]} error={"letters"} /> */}
