@@ -50,14 +50,14 @@ const ResultShowScreen = () => {
                   noValidate
                 >
                 {/* <ResultShowDetail name={"name"} type={"text"} value={(user || '')} onChange={onChange} error={"letters"} /> */}
-                <ResultShowDetail name={"name"}     type={"text"}  value={'name'}               error={"letters"} />
-                <ResultShowDetail name={"username"} type={"text"}  value={'username'}           error={"letters-numbers"} />
-                <ResultShowDetail name={"email"}    type={"email"} value={'email'}              error={"email"} />
-                <ResultShowDetail name={"company"}  type={"text"}  value={'company'}            error={"letters"} />
-                {/* <ResultShowDetail name={"country"}  type={"text"}  value={user.address["country"]} error={"letters"} />
-                <ResultShowDetail name={"state"}    type={"text"}  value={user.address["state"]}   error={"letters"} />
-                <ResultShowDetail name={"city"}     type={"text"}  value={user.address["city"]}    error={"letters"} />
-                <ResultShowDetail name={"address"}  type={"text"}  value={user.address["streetA"]} error={"letters"} /> */}
+                <ResultShowDetail name={"name"}     type={"text"}  value={'name'}     error={"letters"} />
+                <ResultShowDetail name={"username"} type={"text"}  value={'username'} error={"letters-numbers"} />
+                <ResultShowDetail name={"email"}    type={"email"} value={'email'}    error={"email"} />
+                <ResultShowDetail name={"company"}  type={"text"}  value={'company'}  error={"letters"} />
+                <ResultShowDetail name={"country"}  type={"text"}  value={'country'}  error={"letters"} />
+                <ResultShowDetail name={"state"}    type={"text"}  value={'state'}    error={"letters"} />
+                <ResultShowDetail name={"city"}     type={"text"}  value={'city'}     error={"letters"} />
+                <ResultShowDetail name={"address"}  type={"text"}  value={'streetA'}  error={"letters"} />
                 <input className="result-show-screen_btn result-show-screen_btn__gradient" type="submit" value="Save" />
             </form>
             {/* <nav>
