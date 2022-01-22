@@ -1,14 +1,8 @@
 import React, { useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { useStateWithLocalStorage } from "./useStateWithLocalStorage";
 import { useReducerWithLocalStorage } from "./useReducerWithLocalStorage";
 import "./result-show-detail.view.scss";
 
-const ResultShowDetail = ({ name, type, value, error }) => {
-    
-    const location = useLocation();
-    const { from } = location.state;
-    const [user, setUser] = useStateWithLocalStorage(from);
+const ResultShowDetail = ({ user, handleUser, name, type, value, error }) => {
     // const [state, dispatch] = useReducerWithLocalStorage(from);
 
     const TEMPLATE_MAP_USER = new Map([
@@ -22,16 +16,44 @@ const ResultShowDetail = ({ name, type, value, error }) => {
         ["streetA"  ,user.address["streetA"] ],
     ]);
 
+    // https://learn.javascript.ru/property-descriptors
+    // Флаги и дескрипторы свойств
     const onChange = useCallback(event => {
         const obj_user = user;
-        obj_user[value] = event.target.value;
-        // setUser({name: event.target.value}, ...user);
-        setUser(obj_user);
-        
-        // TEMPLATE_MAP_SET_USER.get(value) = event.target.value;
-        // from[value] = event.target.value;
-        localStorage.setItem(from.username, JSON.stringify(user));
-    }, [value, user]);
+        // console.log(user);
+        switch (value) {
+            case "name": 
+                obj_user['name'] = event.target.value;
+                break;
+            case "username":
+                obj_user['username'] = event.target.value;
+                break;
+            case "email":
+                obj_user['email'] = event.target.value;
+                break;
+            case "company":
+                obj_user.company['name'] = event.target.value;
+                break;
+            case "country":
+                obj_user['address']['country'] = event.target.value;
+                break;
+            case "state":
+                obj_user['address']['state'] = event.target.value;
+                break;
+            case "city":
+                obj_user.address['city'] = event.target.value;
+                break;
+            case "streetA":
+                obj_user.address['streetA'] = event.target.value;
+                break;
+            default:
+                break;
+        }
+        // let descriptor = Object.getOwnPropertyDescriptor(obj_user, value);
+        handleUser(obj_user);
+        // console.log(user);
+        // localStorage.setItem(from.username, JSON.stringify(obj_user));
+    }, []);
 
     // const onChange = event => setUser(event.target.value);
     // const onChange = event => dispatch({type: value, value: event.target.value});
