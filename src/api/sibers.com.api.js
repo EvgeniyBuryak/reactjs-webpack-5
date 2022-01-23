@@ -3,11 +3,8 @@ import axios from 'axios';
 const getUsers = async () => {
 
     try {
-        const response = await axios.get('https://demo.sibers.com/users', {
-            params: {
-                limit: 10,
-            }
-        });
+        // Request users data from sibers.com.api
+        const response = await axios.get('https://demo.sibers.com/users');
 
         return response.data;
     } catch (error) {

@@ -4,6 +4,7 @@ import ResultDetail from "../result-detail/result-detail.view";
 import "./results-list.view.scss";
 
 const ResultList = ({ results }) => {
+    // Initial the begin five users
     const initialState = {
         from: 0, 
         to: 5, 
@@ -12,9 +13,10 @@ const ResultList = ({ results }) => {
         } 
     };
     
-
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    // Display five users per page
+    // If you press the forward or back button, the next five users will be displayd
     function reducer (state, action) {
         const re = {from: state.from, to: state.to};
 
@@ -62,8 +64,8 @@ const ResultList = ({ results }) => {
             <ul>
                 {results.map(renderPerson)}
             </ul>
-            <button className="result-list__btn result-list__btn__gradient" onClick={()=> dispatch({type: 'decrement'})}>Назад</button>
-            <button className="result-list__btn result-list__btn__gradient" onClick={()=> dispatch({type: 'increment'})}>Вперед</button>
+            <button className="result-list__btn result-list__btn__gradient" onClick={()=> dispatch({type: 'decrement'})}>Back</button>
+            <button className="result-list__btn result-list__btn__gradient" onClick={()=> dispatch({type: 'increment'})}>Forward</button>
         </div>
     );
 };

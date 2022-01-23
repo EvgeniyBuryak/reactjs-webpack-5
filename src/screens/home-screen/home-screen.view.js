@@ -6,6 +6,7 @@ import "./home-screen.view.scss";
 const HomeScreen = () => {
     const [results, setResults] = useState([]);
 
+    // Get result of user data request from sibers.com.api
     const getResults = async () => {
 
         try {
