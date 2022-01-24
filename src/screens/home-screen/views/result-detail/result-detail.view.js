@@ -1,24 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import "./result-detail.view.scss";
 
 const ResultDetail = ( {result} ) => {
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem(result.username)) || result
     );
-
-    // const setResults = () => {
-    //     let name = 'name';
-    //     let phone = 'phone';
-
-    //     localStorage.setItem(name, result[name]);
-    //     localStorage.setItem(phone, result[phone]);
-    //     localStorage.setItem("company", result.company["name"]);
-    //     localStorage.setItem("country", result.address["country"]);
-    // }
-    
-    useEffect(() => {
-        // setResults();        
-    }, []);
     
     return (
         <div className="result-detail__border-line">

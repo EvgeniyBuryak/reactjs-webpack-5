@@ -124,9 +124,9 @@ const myValidate = () => {
         let type = input.getAttribute('type');
         const KEY = input.dataset.callRegType;
         const KEY_ERROR = input.dataset.showErrorMessage;
-        // const KEY = input.type;
+        
         const RE = MAP_REGEXP_FOR_INPUTS.get(KEY);
-        // const RE = MAP_REGEXP_FOR_INPUTS.get(type);
+        
         const LENGTH = input.value.length;
         
         switch(type) {

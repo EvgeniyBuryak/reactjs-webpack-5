@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useCallback } from "react";
+import React, { useReducer, useCallback } from "react";
 import { Link } from "react-router-dom";
 import ResultDetail from "../result-detail/result-detail.view";
 import "./results-list.view.scss";
@@ -51,8 +51,7 @@ const ResultList = ({ results }) => {
     )}, [state]);
 
     return (
-        <div className="result-list">
-            {/* <h6> {state.from} </h6> */}
+        <div className="result-list">            
             <div className="result-list__border-line">
                 <ul className="result-list__list">
                     <li className="result-list__item">Name</li>

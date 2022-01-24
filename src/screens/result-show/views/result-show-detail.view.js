@@ -1,9 +1,7 @@
 import React, { useCallback } from "react";
-import { useReducerWithLocalStorage } from "./useReducerWithLocalStorage";
 import "./result-show-detail.view.scss";
 
-const ResultShowDetail = ({ user, handleUser, name, type, value, error }) => {
-    // const [state, dispatch] = useReducerWithLocalStorage(from);
+const ResultShowDetail = ({ user, handleUser, name, type, value, error }) => {    
 
     const TEMPLATE_MAP_USER = new Map([
         ["name"     ,user['name']            ],
@@ -49,14 +47,9 @@ const ResultShowDetail = ({ user, handleUser, name, type, value, error }) => {
             default:
                 break;
         }
-        // let descriptor = Object.getOwnPropertyDescriptor(obj_user, value);
-        handleUser(obj_user);
-        // console.log(user);
-        // localStorage.setItem(from.username, JSON.stringify(obj_user));
+        
+        handleUser(obj_user);        
     }, []);
-
-    // const onChange = event => setUser(event.target.value);
-    // const onChange = event => dispatch({type: value, value: event.target.value});
 
     return (
         <div className="result-show-detail">
@@ -65,11 +58,8 @@ const ResultShowDetail = ({ user, handleUser, name, type, value, error }) => {
             data-show-error-message={error}
             data-call-reg-type={name}
             type={type}
-            placeholder={name} 
-            // defaultValue={dispatch({ type: 'name'})}
-            // defaultValue={state.name}
-            defaultValue={TEMPLATE_MAP_USER.get(value)}
-            // defaultValue={user[value]}
+            placeholder={name}             
+            defaultValue={TEMPLATE_MAP_USER.get(value)}            
             onChange={onChange}
         />
         </div>

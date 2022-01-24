@@ -6,9 +6,8 @@ const useStateWithLocalStorage = localStorageKey => {
     );
         
     // useEffect(()=>{
-    //     console.log(user);
-    //     // if (localStorage.getItem(localStorageKey.username) == null)
-    //     localStorage.setItem(localStorageKey.username, JSON.stringify(user));
+    //     if (localStorage.getItem(localStorageKey.username) == null)
+    //       localStorage.setItem(localStorageKey.username, JSON.stringify(user));
     // }, [localStorageKey]);
 
     return [user, setUser];
