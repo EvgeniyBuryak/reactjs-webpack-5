@@ -1,7 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./result-detail.view.scss";
 
 const ResultDetail = ( {result} ) => {
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem(result.username)) || result
+    );
+
     // const setResults = () => {
     //     let name = 'name';
     //     let phone = 'phone';
@@ -13,16 +17,16 @@ const ResultDetail = ( {result} ) => {
     // }
     
     useEffect(() => {
-        // setResults();
+        // setResults();        
     }, []);
     
     return (
         <div className="result-detail__border-line">
             <ul key={result.id} className="result-detail__list">
-                <li className="result-detail__item"><b>{result.name}</b></li>
-                <li className="result-detail__item"><b>{result.phone}</b></li>
-                <li className="result-detail__item"><b>{result.company["name"]}</b></li>
-                <li className="result-detail__item"><b>{result.address["country"]}</b></li>
+                <li className="result-detail__item"><b>{user.name}</b></li>
+                <li className="result-detail__item"><b>{user.phone}</b></li>
+                <li className="result-detail__item"><b>{user.company["name"]}</b></li>
+                <li className="result-detail__item"><b>{user.address["country"]}</b></li>
             </ul>
         </div>
     );
