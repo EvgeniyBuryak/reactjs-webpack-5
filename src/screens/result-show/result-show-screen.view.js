@@ -1,13 +1,15 @@
 import React, { useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./result-show-screen.view.scss";
-import { myValidate } from "./form-validation";
+import { myValidate } from "./scripts/form-validation";
 import ResultShowDetail from "./views/result-show-detail.view";
 import { useStateWithLocalStorage } from "./hooks/useStateWithLocalStorage";
 
 const ResultShowScreen = () => {
+    // get data from home screen
     const location = useLocation();
-    const { from } = location.state;    
+    const { from } = location.state;
+    
     const [user, setUser] = useStateWithLocalStorage(from);
 
     const handleFormSubmit = useCallback((e)=> {

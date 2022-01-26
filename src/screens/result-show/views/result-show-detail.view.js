@@ -5,7 +5,6 @@ const ResultShowDetail = ({ user, handleUser, name, type, value, error }) => {
 
     const TEMPLATE_MAP_USER = new Map([
         ["name"     ,user['name']            ],
-        ["username" ,user['username']        ],
         ["email"    ,user['email']           ],
         ["company"  ,user.company['name']    ],
         ["country"  ,user.address["country"] ],
@@ -22,9 +21,6 @@ const ResultShowDetail = ({ user, handleUser, name, type, value, error }) => {
         switch (value) {
             case "name": 
                 obj_user['name'] = event.target.value;
-                break;
-            case "username":
-                obj_user['username'] = event.target.value;
                 break;
             case "email":
                 obj_user['email'] = event.target.value;
