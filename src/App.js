@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { HomeScreen } from "./screens/home-screen/home-screen.view";
 import { ResultShowScreen } from "./screens/result-show/result-show-screen.view";
 import "./App.css";
