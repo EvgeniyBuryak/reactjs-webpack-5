@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./result-show-screen.view.scss";
 import { myValidate } from "./form-validation";
 import ResultShowDetail from "./views/result-show-detail.view";
-import { useStateWithLocalStorage } from "./views/useStateWithLocalStorage";
+import { useStateWithLocalStorage } from "./hooks/useStateWithLocalStorage";
 
 const ResultShowScreen = () => {
     const location = useLocation();
@@ -22,23 +22,27 @@ const ResultShowScreen = () => {
     }, []);
 
     return (
+        <>
+        <nav className="result-show-screen__nav">
+            <Link className="result-show-screen__link" to="/">Back to Home</Link>
+        </nav>
         <div className="result-show-screen">
             <ul className="result-show-screen__list">
-                <li className="result-show-screen_item">Name</li>                
-                <li className="result-show-screen_item">Email</li>
-                <li className="result-show-screen_item">Company</li>
-                <li className="result-show-screen_item">Country</li>
-                <li className="result-show-screen_item">State</li>
-                <li className="result-show-screen_item">City</li>
-                <li className="result-show-screen_item">Address</li>
+                <li className="result-show-screen__item">Name</li>
+                <li className="result-show-screen__item">Email</li>
+                <li className="result-show-screen__item">Company</li>
+                <li className="result-show-screen__item">Country</li>
+                <li className="result-show-screen__item">State</li>
+                <li className="result-show-screen__item">City</li>
+                <li className="result-show-screen__item">Address</li>
             </ul>            
             <form
-                  className="result-show-screen__list result-show-screen__list_second"
+                  className="result-show-screen__list result-show-screen__list--second"
                   name="form" 
                   method="get" 
                   onSubmit={handleFormSubmit}
                   noValidate
-                >                
+                >
                 <ResultShowDetail user={user} handleUser={handleUser} name={"name"}     type={"text"}  value={'name'}     error={"letters"} />                
                 <ResultShowDetail user={user} handleUser={handleUser} name={"email"}    type={"email"} value={'email'}    error={"email"} />
                 <ResultShowDetail user={user} handleUser={handleUser} name={"company"}  type={"text"}  value={'company'}  error={"letters"} />
@@ -46,12 +50,10 @@ const ResultShowScreen = () => {
                 <ResultShowDetail user={user} handleUser={handleUser} name={"state"}    type={"text"}  value={'state'}    error={"letters"} />
                 <ResultShowDetail user={user} handleUser={handleUser} name={"city"}     type={"text"}  value={'city'}     error={"letters"} />
                 <ResultShowDetail user={user} handleUser={handleUser} name={"address"}  type={"text"}  value={'streetA'}  error={"letters"} />
-                <input className="result-show-screen_btn result-show-screen_btn__gradient" type="submit" value="Save" />
-            </form>
-            <nav>
-                <Link to="/">Home</Link>
-            </nav>
+                <input className="result-show-screen__btn result-show-screen__btn--gradient" type="submit" value="Save" />
+            </form>            
         </div>
+        </>
     );
 }
 

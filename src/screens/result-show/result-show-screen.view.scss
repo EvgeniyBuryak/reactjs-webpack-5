@@ -6,33 +6,50 @@
         display: grid;
         grid-template-columns: 1fr 3fr;
 
+    &__nav {        
+        position: relative;
+        border-radius: 2px;
+        min-height: 76px;
+        width: 150px;
+        margin: 10px;
+        float: left;
+    }
+
+    &__link {
+        position: absolute;
+        outline: 1px solid rgb(179, 126, 126);
+        background: transparent;
+        border-radius: 2px;
+        padding: 10px 20px;
+        left: 10px;
+        top: 10px;
+    }
+
     &__list {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding-right: 2vh;        
+        padding-right: 2vh;
+
+        &--second {            
+            justify-content: space-between;
+        }
     }
 
-    &__list_second {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
 
-    &_item {
+    &__item {
         line-height: 3rem;
         text-align: left;
     }
     
     // empty block height 3rem
-    &_item:nth-last-child(-n+1)::after {
+    &__item:nth-last-child(-n+1)::after {
         display: block;
         content: "";
         height: 3rem;
     }
 
-    &_btn {
+    &__btn {
         width: 334px;        
         padding-left: 15px;
         font-size: 14px;
@@ -44,7 +61,7 @@
         background: transparent;
         outline: 1px solid $white30;
 
-        &__gradient {
+        &--gradient {
             width: 144px;
             padding-left: 0;
             color: $ink;

@@ -4,12 +4,12 @@
     flex-direction: row;
     align-items: center;
 
-    &_item {
+    &__item {
         line-height: 3rem;
         text-align: left;
     }
     
-    &_btn {
+    &__btn {
         width: 334px;
         padding-left: 15px;
         font-size: 14px;

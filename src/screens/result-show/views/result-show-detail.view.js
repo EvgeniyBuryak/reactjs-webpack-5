@@ -54,7 +54,7 @@ const ResultShowDetail = ({ user, handleUser, name, type, value, error }) => {
     return (
         <div className="result-show-detail">
         <input  
-            className="result-show-detail_item result-show-detail_btn" 
+            className="result-show-detail__item result-show-detail__btn"
             data-show-error-message={error}
             data-call-reg-type={name}
             type={type}
