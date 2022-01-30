@@ -1,17 +1,8 @@
 const paths = require('../paths');
 
-// const webpack = require('webpack');
-
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  /** 
-   * babel-polyfill for solution problem with error below
-   * ReferenceError: regeneratorRuntime is not defined */
-  entry: {
-    app: ['babel-polyfill', `${paths.src}/index.js`]
-  },
   //Where files should be sent once they are bundled
   output: {    
     filename: 'js/[name].bundle.js',
@@ -20,12 +11,6 @@ module.exports = {
     clean: true,
     // module: true,
   },
-  // resolve: {
-  //   alias: {
-  //     '@': `${paths.src}/modules`
-  //   },
-  //   extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
-  // },
   //Rules of how webpack will take our files, complie & bundle them for the browser 
   module: {
     rules: [
@@ -45,15 +30,6 @@ module.exports = {
     ]
   },
   plugins: [
-    
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: `${paths.public}/assets`
-    //     }
-    //   ]
-    // }),
-
     new HtmlWebpackPlugin({ 
       template: `${paths.src}/index.html`,
       filename: 'index.html',
