@@ -82,11 +82,19 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 22px;
 }
 
-a { text-decoration: none; }
+a { 
+    text-decoration: none; 
+    color:rgb(216, 211, 146);
+}
 
 a:-webkit-any-link {
     color:rgb(216, 211, 146);
 }
+
+a:-moz-any-link {
+    color:rgb(216, 211, 146);
+}
+
 ul, li {
     margin: 0;  
     padding: 0;
